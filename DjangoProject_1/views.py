@@ -84,3 +84,4 @@ def country_list_json(request, max_countries):
 
     return HttpResponse(response_data)
 
+
