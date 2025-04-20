@@ -1,7 +1,11 @@
 from django.http import HttpResponse,HttpResponseNotFound, JsonResponse
 from datetime import datetime
+
+from django.template.loader import render_to_string
+
 from .models import all_countries
 from .models import find_by_name
+from django.shortcuts import render
 
 call_counter = 0
 
@@ -18,8 +22,11 @@ def country_by_name(request, country_name):
 
     if found_country is None:
         return HttpResponseNotFound(f"Nie znaleziono kraju o nazwie {country_name}.")
+    return render(request, 'django_project_1/country.html', {
+        'found_country': found_country
+    })
 
-    return JsonResponse(found_country)
+
 
 def country_name(request, country_name):
     found_country = find_by_name(country_name)
@@ -61,16 +68,11 @@ def first_html(request):
 
 
 def country_list(request, max_countries):
-    countries_to_display = all_countries[:max_countries]
+    return render(request, 'django_project_1/country_list.html', {
+        'country_list': all_countries[:max_countries]
+    })
 
-    response_data = "<h1>Lista Krajów</h1><ul>"
 
-    for country in countries_to_display:
-        response_data += f"<li><a href='/country/{country['country']}'> {country['country']} </a></li>"
-
-    response_data += "</ul>"
-
-    return HttpResponse(response_data)
 
 def country_list_json(request, max_countries):
     countries_to_display = all_countries[:max_countries]
@@ -83,5 +85,11 @@ def country_list_json(request, max_countries):
     response_data += "</ul>"
 
     return HttpResponse(response_data)
+
+
+def first_template(request):
+    return render(request,'django_project_1/first_template.html')
+
+
 
 

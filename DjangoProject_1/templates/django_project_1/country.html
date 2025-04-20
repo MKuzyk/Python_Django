@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kraj</title>
+</head>
+<body>
+<div>Kraj: {{ found_country.country }}</div>
+{% if found_country.capital is not None %}
+    <div>Stolica:{{ found_country.capital }}</div>
+{% else %}
+    <div style="color: red">Kraj nie posiada stolicy</div>
+{%  endif %}
+<div>Kod: {{ found_country.cc }}</div>
+<div>Numer kierunkowy: :{{ found_country.iac }}</div>
+<div>Strefa czasowa: :{{ found_country.timezone }}</div>
+<div>Waluta: :{{ found_country.currency }}</div>
+</body>
+</html>
