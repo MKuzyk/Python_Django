@@ -53,12 +53,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'DjangoProject_1.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            BASE_DIR / 'DjangoProject_1/templates',  # Dodaj ten folder
-        ],
+        'DIRS': [BASE_DIR / 'templates', BASE_DIR / 'DjangoProject_1' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

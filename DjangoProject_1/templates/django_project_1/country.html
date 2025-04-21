@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Kraj</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Szczegóły kraju
+{% endblock %}
+
+{% block page_content %}
+
+
 <div>Kraj: {{ found_country.country }}</div>
 {% if found_country.capital is not None %}
     <div>Stolica:{{ found_country.capital }}</div>
@@ -15,5 +17,4 @@
 <div>Numer kierunkowy: :{{ found_country.iac }}</div>
 <div>Strefa czasowa: :{{ found_country.timezone }}</div>
 <div>Waluta: :{{ found_country.currency }}</div>
-</body>
-</html>
+{% endblock %}

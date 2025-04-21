@@ -1,19 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista Krajów</title>
-</head>
-<body>
-<div style="font-size: 30px;font-weight: bold">{{ country_list|length }} krajów</div>
-<ul>
-    {% for country in country_list %}
-        <li style="margin-bottom: 10px">
-            <a href="{% url 'country_by_name_url' country_name=country.country%}">
-                {{ country.country }}
-            </a>
-        </li>
-    {% endfor %}
-</ul>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Lista krajów
+{% endblock %}
+
+{% block page_content %}
+    <div style="font-size: 30px;font-weight: bold">{{ country_list|length }} krajów</div>
+        <ul>
+            {% for country in country_list %}
+                <li style="margin-bottom: 10px">
+        <a href="{% url 'country_by_name_url' country_name=country.country %}" style="text-decoration: none; color: blue;">
+            {{ country.country }}
+        </a>
+                </li>
+            {% endfor %}
+        </ul>
+{% endblock %}

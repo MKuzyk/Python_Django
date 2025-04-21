@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block page_title %}{% endblock%}
+    </title>
+</head>
+<body style="background-color: lightgray;height: 100vh;width: 100vw;margin: 0">
+<div style="height: 50px; background: gray; color: white; padding: 5px; margin-bottom: 20px; display: flex;
+ justify-content: space-between;align-items: center">
+    <h3>Planer podróży</h3>
+    <div>
+        <a href="{% url 'country_list_url' max_countries=20 %}">Lista krajów</a>
+    </div>
+</div>
+
+<div style="display: flex; justify-content: center; width: 100%;">
+  <div style="max-width: 1200px; width: 100%;">  <!-- ← tu był błąd -->
+    {% block page_content %}
+    {% endblock %}
+  </div>
+</div>
+
+
+<div style="bottom: 0; height: 50px; display: flex;
+align-items: center; justify-content: center; color: white;
+position: fixed; width: 100%; background: black">
+    <p>Podyplomowe Python</p>
+</div>
+</body>
+</html>

@@ -33,7 +33,7 @@ urlpatterns = [
     path('country/<str:country_name>/', views.country, name='country_name'),
     path('country/index/<int:country_index>/', views.country_by_index, name='country_index'),
     path('first-html/',views.first_html,name='first_html'),
-    path('country-list/<int:max_countries>/', views.country_list, name='country_list'),
+    path('country-list/<int:max_countries>/', views.country_list, name='country_list_url'),
     path('country-list-json/<int:max_countries>/', views.country_list_json, name='country_list'),
     path('first-template/', views.first_template, name='first_template'),
 ]
